@@ -51,7 +51,7 @@ public class TicTacToe extends JPanel
             }
             else
             {
-                JOptionPane.showConfirmDialog(null, "No cheating. >:(");
+                JOptionPane.showMessageDialog(null, "No cheating. >:(");
                 alternate--;
             }
             if(checkForWin().equals("X wins!") || checkForWin().equals("O wins!"))
