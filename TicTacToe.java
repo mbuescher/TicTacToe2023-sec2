@@ -59,6 +59,11 @@ public class TicTacToe extends JPanel
                 JOptionPane.showConfirmDialog(null, "Game Over.");
                 resetButtons();
             }
+            else if(checkForTie() == true)
+            {
+                JOptionPane.showMessageDialog(null, "You Tied.");
+                resetButtons();
+            }
 
             alternate++;
 
@@ -94,9 +99,21 @@ public class TicTacToe extends JPanel
                 return true;
             else 
                 return false;
-
-
         }
+        
+        
+        public boolean checkForTie()
+        {
+            for (int i = 0; i < buttons.length; i++)
+            {
+                if (buttons[i].getText().equals(""))
+                {
+                   return false;
+                }
+            }
+            return true;
+        }
+        
 
         public boolean checkAdjacent(int a, int b)
         {
