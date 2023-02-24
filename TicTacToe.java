@@ -54,9 +54,9 @@ public class TicTacToe extends JPanel
                 JOptionPane.showConfirmDialog(null, "No cheating. >:(");
                 alternate--;
             }
-            if(checkForWin() == true)
+            if(checkForWin().equals("X wins!") || checkForWin().equals("O wins!"))
             {
-                JOptionPane.showConfirmDialog(null, "Game Over.");
+                JOptionPane.showMessageDialog(null, "Game Over. " + checkForWin());
                 resetButtons();
             }
             else if(checkForTie() == true)
@@ -69,7 +69,7 @@ public class TicTacToe extends JPanel
 
         }
 
-        public boolean checkForWin()
+        public String checkForWin()
         {
             /**   Reference: the button array is arranged like this as the board
              *      0 | 1 | 2
@@ -78,27 +78,27 @@ public class TicTacToe extends JPanel
              */
             //horizontal win check
             if( checkAdjacent(0,1) && checkAdjacent(1,2) ) //no need to put " == true" because the default check is for true
-                return true;
+                return buttons[0].getText() + " wins!";
             else if( checkAdjacent(3,4) && checkAdjacent(4,5) )
-                return true;
+                return buttons[3].getText() + " wins!";
             else if ( checkAdjacent(6,7) && checkAdjacent(7,8))
-                return true;
-
+                return buttons[6].getText() + " wins!";
+            
             //vertical win check
             else if ( checkAdjacent(0,3) && checkAdjacent(3,6))
-                return true;  
+                return buttons[0].getText() + " wins!";  
             else if ( checkAdjacent(1,4) && checkAdjacent(4,7))
-                return true;
+                return buttons[1].getText() + " wins!";
             else if ( checkAdjacent(2,5) && checkAdjacent(5,8))
-                return true;
-
+                return buttons[2].getText() + " wins!";
+            
             //diagonal win check
             else if ( checkAdjacent(0,4) && checkAdjacent(4,8))
-                return true;  
+                return buttons[0].getText() + " wins!";  
             else if ( checkAdjacent(2,4) && checkAdjacent(4,6))
-                return true;
+                return buttons[2].getText() + " wins!";
             else 
-                return false;
+                return "";
         }
         
         
